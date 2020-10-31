@@ -1,0 +1,37 @@
+<div>
+  <h3>
+    Employee Details Form
+  </h3>
+  <hr>
+  <form #empForm="ngForm">
+    <div class="form-group">
+      <label>Name</label>
+      <input type="text" required #f1="ngModel" class="form-control" [class.is-invalid]="f1.invalid && f1.touched" name="name" placeholder="Employee Name" [(ngModel)]="name">    
+    </div>
+    <div class="form-group">
+      <label>Position</label>
+      <input type="text" required #f2="ngModel" class="form-control" name="position" [class.is-invalid]="f2.invalid && f2.touched" placeholder="Employee Position" [(ngModel)]="position">
+    </div>
+    <div class="form-group">
+      <label>About</label>
+      <textarea class="form-control" required #f3="ngModel" rows="3" name="about" [class.is-invalid]="f3.invalid && f3.touched" placeholder="About You" [(ngModel)]="about"></textarea>
+    </div>
+    <div class="form-group">
+      <label>Date of Joining</label>
+      <br>
+      <input matInput [matDatepicker]="picker"  #f4="ngModel" name="date" placeholder=" Date of Joining" [class.is-invalid]="f3.invalid && f3.touched" required [(ngModel)]="date1">
+      <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+      <mat-datepicker #picker></mat-datepicker>
+    </div>
+    <div class="row">
+      <div class="col-6">
+        <button [disabled]="empForm.form.invalid" type="submit" (click)="display()" class="btn btn-primary">Add Details</button>
+      </div>
+      <div class="col-6">
+        <button (click)="list_page()" class="btn btn-success">Show Employee List</button>
+      </div>
+    </div>
+    
+  </form>
+  
+</div>

@@ -1,0 +1,29 @@
+<button (click)="main_page()" class="btn btn-warning" routerlink="/">Go Back</button>
+<div *ngIf="list?.length == 0" class="alert alert-danger" role="alert" style="margin-top: 2%;">
+  No Data to retrieve !!!
+</div>
+<mat-grid-list cols="2" rowHeight="2:1">
+  <mat-grid-tile *ngFor="let emp of list;let i = index">
+    <mat-card>
+      <mat-card-header>
+        <div mat-card-avatar class="example-header-image"><i class="fas fa-user fa-3x"></i></div>
+        <div mat-card-avatar ></div>
+        <mat-card-title>{{emp.name}}</mat-card-title>
+        <mat-card-subtitle>{{emp.position}}</mat-card-subtitle>
+      </mat-card-header>
+      <mat-card-content>
+        <p>
+          {{emp.about}}
+        </p>
+        <small>
+          {{emp.doj}}
+        </small>
+      </mat-card-content>
+      <mat-card-actions>
+       <button class="btn btn-danger" (click)="remove(i)" >
+         Remove
+       </button>
+      </mat-card-actions>
+    </mat-card>
+  </mat-grid-tile>
+</mat-grid-list>
